@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +47,86 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controls\Person\ctrlPersonInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Person\ctrlPersonInfo.Designer.cs">
+      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Person\ctrlPersonInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Person\ctrlPersonInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\User\ctrlUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\User\ctrlUserInfo.Designer.cs">
+      <DependentUpon>ctrlUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmAddEditPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="People\frmAddEditPersonInfo.Designer.cs">
+      <DependentUpon>frmAddEditPersonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmFindPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmFindPerson.Designer.cs">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmManageAndListePeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmManageAndListePeople.Designer.cs">
+      <DependentUpon>frmManageAndListePeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmPersonCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmPersonCard.Designer.cs">
+      <DependentUpon>frmPersonCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\Person\ctrlPersonInfo.resx">
+      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Person\ctrlPersonInfoWithFilter.resx">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\User\ctrlUserInfo.resx">
+      <DependentUpon>ctrlUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddEditPersonInfo.resx">
+      <DependentUpon>frmAddEditPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmFindPerson.resx">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmManageAndListePeople.resx">
+      <DependentUpon>frmManageAndListePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmPersonCard.resx">
+      <DependentUpon>frmPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +135,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="User\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,5 +159,360 @@
       <Name>DVLD.Business</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_settings64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddAppointment32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddNewUser32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddNewUser72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPerson32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPerson40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPerson72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Address32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Applications64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicationType.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicationTypes64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicationTypes512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicatioTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\call32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cars48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeBlack32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Count32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Country32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DamagedDrivingLicense32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete User 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete32_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Detain32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Detain64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Detain512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DetainedDrivingLicense32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DriverLicense48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DriverMain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-test512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditUser32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Email32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Faild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Female 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\International32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IssueDrivingLicense32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LicenseType32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LicenseView32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LicenseView400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Local32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LocalDrivingLicense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LocalDrivingLicense512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoFinal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LostDrivingLicense32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Man32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManageApplications32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManageApplications64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManagePeople.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money32-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewApplication64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewDrivingLicense32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notes32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Number32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Passed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PassedTests32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Person32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonDetails32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phone32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prev32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prev64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReleaseDetainedLicense32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReleaseDetainedLicense64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReleaseDetainedLicense512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RenewDrivingLicense32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RetakeTest32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScheduleTest32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScheduleTest512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sendemail32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_in32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_out_32 -2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SignOut32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SignOut64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StreetTest32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tags.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestType32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestType64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestType512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_32 -2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users_2_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users_2_400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vision512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VisionTest32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VisionTestSchdule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WallPaper2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Woman32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WrittenTest32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WrittenTest32Sechdule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WrittenTest512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo_2026-03-04_22-35-26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photoCar01.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
