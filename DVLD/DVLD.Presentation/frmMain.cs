@@ -1,4 +1,7 @@
-﻿using DVLD.Presentation.People;
+﻿using DVLD.Business.GlobalClasses;
+using DVLD.Presentation.Login;
+using DVLD.Presentation.People;
+using DVLD.Presentation.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +16,11 @@ namespace DVLD.Presentation
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        private frmLogin _frmLogin;
+        public frmMain(frmLogin frmLogin)
         {
             InitializeComponent();
+            _frmLogin = frmLogin;
         }
 
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,6 +37,38 @@ namespace DVLD.Presentation
         {
             Form frm1 = new frmManageAndListePeople();
             frm1.ShowDialog();
+        }
+
+        private void tsmUsers_Click(object sender, EventArgs e)
+        {
+            Form frm1 = new frmManageUsers();
+            frm1.ShowDialog();
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsGlobal.CurrentUser = null;
+            _frmLogin.Show();
+            this.Close();
+        }
+
+        private void currToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserCardInfo frm = new frmUserCardInfo(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+           // lblLoggedInUser.Text = "LoggedIn User: " + clsGlobal.CurrentUser.UserName;
+            this.Refresh();
         }
     }
 }

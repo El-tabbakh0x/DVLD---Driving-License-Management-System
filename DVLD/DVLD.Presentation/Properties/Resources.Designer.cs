@@ -263,6 +263,16 @@ namespace DVLD.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CloseBlack1 {
+            get {
+                object obj = ResourceManager.GetObject("CloseBlack1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap closeBlack32 {
             get {
                 object obj = ResourceManager.GetObject("closeBlack32", resourceCulture);

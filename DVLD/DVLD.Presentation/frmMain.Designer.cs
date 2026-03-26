@@ -246,6 +246,7 @@
             this.tsmUsers.Name = "tsmUsers";
             this.tsmUsers.Size = new System.Drawing.Size(99, 36);
             this.tsmUsers.Text = "Users";
+            this.tsmUsers.Click += new System.EventHandler(this.tsmUsers_Click);
             // 
             // tsmAccountSettings
             // 
@@ -265,6 +266,7 @@
             this.currToolStripMenuItem.Name = "currToolStripMenuItem";
             this.currToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.currToolStripMenuItem.Text = "Current User Info";
+            this.currToolStripMenuItem.Click += new System.EventHandler(this.currToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
@@ -272,6 +274,7 @@
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -284,6 +287,7 @@
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.signOutToolStripMenuItem.Text = "Sign Out";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -309,6 +313,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.msMainMenu.ResumeLayout(false);
             this.msMainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
