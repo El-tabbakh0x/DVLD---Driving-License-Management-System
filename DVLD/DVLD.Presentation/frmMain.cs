@@ -1,4 +1,5 @@
 ﻿using DVLD.Business.GlobalClasses;
+using DVLD.Presentation.Application.ApplicationType;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
 using DVLD.Presentation.User;
@@ -69,6 +70,17 @@ namespace DVLD.Presentation
             this.BackColor = Color.White;
            // lblLoggedInUser.Text = "LoggedIn User: " + clsGlobal.CurrentUser.UserName;
             this.Refresh();
+        }
+
+        private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manageApplicationsTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
         }
     }
 }
