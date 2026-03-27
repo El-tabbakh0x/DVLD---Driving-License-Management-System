@@ -46,6 +46,7 @@
     <Compile Include="clsDVLDBusiness.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsSecuritycs.cs" />
+    <Compile Include="clsTestType.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="GlobalClasses\clsFormat.cs" />
     <Compile Include="GlobalClasses\clsGlobal.cs" />

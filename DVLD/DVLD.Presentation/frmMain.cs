@@ -2,6 +2,7 @@
 using DVLD.Presentation.Application.ApplicationType;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
+using DVLD.Presentation.Tests.TestTypes;
 using DVLD.Presentation.User;
 using System;
 using System.Collections.Generic;
@@ -80,6 +81,12 @@ namespace DVLD.Presentation
         private void manageApplicationsTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
             frm.ShowDialog();
         }
     }
