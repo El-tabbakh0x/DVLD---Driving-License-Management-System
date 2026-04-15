@@ -132,7 +132,7 @@ namespace DVLD.DataAccess
             (int UserID, ref int PersonID, ref string UserName, ref bool IsActive)
         {
             bool IsFound = false;
-            string query = "Select Users.PersonID, Users.UserName, People.IsActive " +
+            string query = "Select Users.PersonID, Users.UserName, Users.IsActive " +
                          "  From Users " +
                         " Where UserID = @UserID ;";
             using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -169,7 +169,7 @@ namespace DVLD.DataAccess
            (int PersonID, ref int UserID, ref string UserName, ref bool IsActive)
         {
             bool IsFound = false;
-            string query = "Select Users.UserID, Users.UserName, People.IsActive " +
+            string query = "Select Users.UserID, Users.UserName, Users.IsActive " +
                          "  From Users " +
                         " Where PersonID = @PersonID ;";
             using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -206,7 +206,7 @@ namespace DVLD.DataAccess
             (int UserID, ref int PersonID, ref string UserName, ref string PasswordHash, ref bool IsActive)
         {
             bool IsFound = false;
-            string query = "Select Users.PersonID, Users.UserName, Users.PasswordHash, People.IsActive " +
+            string query = "Select Users.PersonID, Users.UserName, Users.PasswordHash, Users.IsActive " +
                          "  From Users " +
                         " Where UserID = @UserID ;";
             using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -244,7 +244,7 @@ public static bool FindAllUserInfoByUserName
            ( string UserName, ref int UserID, ref int PersonID,  ref string PasswordHash, ref bool IsActive)
 {
     bool IsFound = false;
-    string query = "Select Users.UserID, Users.PersonID, Users.UserName, Users.PasswordHash, People.IsActive " +
+    string query = "Select Users.UserID, Users.PersonID, Users.UserName, Users.PasswordHash, Users.IsActive " +
                  "  From Users " +
                 " Where UserName = @UserName ;";
     using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -282,7 +282,7 @@ public static bool FindAllUserInfoByUserName
            (string UserName, string PasswordHash, ref int UserID, ref int PersonID, ref bool IsActive)
         {
             bool IsFound = false;
-            string query = "Select Users.UserID, Users.PersonID, Users.UserName, People.IsActive " +
+            string query = "Select Users.UserID, Users.PersonID, Users.UserName, Users.IsActive " +
                          "  From Users " +
                         " Where UserName = @UserName And PasswordHash = @PasswordHash ;";
             using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))

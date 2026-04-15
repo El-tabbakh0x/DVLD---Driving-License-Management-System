@@ -130,6 +130,7 @@
             this.internationalLicenseToolStripMenuItem.Name = "internationalLicenseToolStripMenuItem";
             this.internationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(308, 36);
             this.internationalLicenseToolStripMenuItem.Text = "International License";
+            this.internationalLicenseToolStripMenuItem.Click += new System.EventHandler(this.internationalLicenseToolStripMenuItem_Click);
             // 
             // newDrivingLicenswToolStripMenuItem1
             // 
@@ -137,6 +138,7 @@
             this.newDrivingLicenswToolStripMenuItem1.Name = "newDrivingLicenswToolStripMenuItem1";
             this.newDrivingLicenswToolStripMenuItem1.Size = new System.Drawing.Size(542, 36);
             this.newDrivingLicenswToolStripMenuItem1.Text = "Renew Driving Licensw";
+            this.newDrivingLicenswToolStripMenuItem1.Click += new System.EventHandler(this.newDrivingLicenswToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
@@ -149,6 +151,7 @@
             this.replacementForLostOrDemagedLicenseToolStripMenuItem.Name = "replacementForLostOrDemagedLicenseToolStripMenuItem";
             this.replacementForLostOrDemagedLicenseToolStripMenuItem.Size = new System.Drawing.Size(542, 36);
             this.replacementForLostOrDemagedLicenseToolStripMenuItem.Text = "Replacement For Lost or Demaged License";
+            this.replacementForLostOrDemagedLicenseToolStripMenuItem.Click += new System.EventHandler(this.replacementForLostOrDemagedLicenseToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -161,6 +164,7 @@
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Name = "releaseDetainedDrivingLicenseToolStripMenuItem";
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(542, 36);
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Text = "Release Detained Driving License";
+            this.releaseDetainedDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedDrivingLicenseToolStripMenuItem_Click);
             // 
             // retakeTestToolStripMenuItem
             // 
@@ -168,6 +172,7 @@
             this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
             this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(542, 36);
             this.retakeTestToolStripMenuItem.Text = "Retake Test";
+            this.retakeTestToolStripMenuItem.Click += new System.EventHandler(this.retakeTestToolStripMenuItem_Click);
             // 
             // manToolStripMenuItem
             // 
@@ -199,6 +204,7 @@
             this.internationalLicenseApplicationsToolStripMenuItem.Name = "internationalLicenseApplicationsToolStripMenuItem";
             this.internationalLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(448, 36);
             this.internationalLicenseApplicationsToolStripMenuItem.Text = "International License Applications";
+            this.internationalLicenseApplicationsToolStripMenuItem.Click += new System.EventHandler(this.internationalLicenseApplicationsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -211,6 +217,7 @@
             this.datlineToolStripMenuItem.Name = "datlineToolStripMenuItem";
             this.datlineToolStripMenuItem.Size = new System.Drawing.Size(380, 36);
             this.datlineToolStripMenuItem.Text = "Detain Licenses ";
+            this.datlineToolStripMenuItem.Click += new System.EventHandler(this.datlineToolStripMenuItem_Click);
             // 
             // manageApplicationsTypesToolStripMenuItem
             // 
@@ -242,6 +249,7 @@
             this.tsmDrivers.Name = "tsmDrivers";
             this.tsmDrivers.Size = new System.Drawing.Size(116, 36);
             this.tsmDrivers.Text = "Drivers";
+            this.tsmDrivers.Click += new System.EventHandler(this.tsmDrivers_Click);
             // 
             // tsmUsers
             // 

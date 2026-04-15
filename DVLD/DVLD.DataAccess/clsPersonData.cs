@@ -37,9 +37,11 @@ namespace DVLD.DataAccess
                     Command.Parameters.Add("@CountryID", SqlDbType.TinyInt).Value = CountryID;
                     Command.Parameters.Add("@GenderID", SqlDbType.TinyInt).Value = GenderID;
                     Command.Parameters.Add("@ImagePath", SqlDbType.NVarChar, 250).Value =
-                        string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath;
-                   
-                        try
+                        string.IsNullOrEmpty(ImagePath) ? "": ImagePath;
+                    /*Command.Parameters.Add("@ImagePath", SqlDbType.NVarChar, 250).Value =
+                       string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath;*/
+
+                    try
                         {
                             Connection.Open();
                             object result = Command.ExecuteScalar();
@@ -96,10 +98,12 @@ namespace DVLD.DataAccess
                         Command.Parameters.Add("@Address", SqlDbType.NVarChar, 500).Value = Address;
                         Command.Parameters.Add("@CountryID", SqlDbType.TinyInt).Value = CountryID;
                         Command.Parameters.Add("@GenderID", SqlDbType.TinyInt).Value = GenderID;
-                        Command.Parameters.Add("@ImagePath", SqlDbType.NVarChar, 250).Value =
-                            string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath;
-                        try
-                        {
+                    Command.Parameters.Add("@ImagePath", SqlDbType.NVarChar, 250).Value =
+                     string.IsNullOrEmpty(ImagePath) ? "" : ImagePath;
+                    /*Command.Parameters.Add("@ImagePath", SqlDbType.NVarChar, 250).Value =
+                       string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath;*/
+                    try
+                    {
                             Connection.Open();
                             RowsAffected = Command.ExecuteNonQuery();
                         }
@@ -138,7 +142,7 @@ namespace DVLD.DataAccess
                     ref DateTime DateOfBirth, ref string Address, ref string Phone, ref string Email, ref string ImagePath, ref short CountryID, ref short GenderID)
                 {
                     bool IsFound = false;
-                    string query = "Select People.PersonID, People.FirstName, People.SecondName, People.ThirdName, People.LastName," +
+                    string query = "Select People.PersonID, People.NationalNo, People.FirstName, People.SecondName, People.ThirdName, People.LastName," +
                                  "People.DateOfBirth, People.Phone, People.Email, People.Address,People.ImagePath, People.CountryID," +
                                  " People.GenderID From People" +
                                 " Where PersonID = @PersonID ;";

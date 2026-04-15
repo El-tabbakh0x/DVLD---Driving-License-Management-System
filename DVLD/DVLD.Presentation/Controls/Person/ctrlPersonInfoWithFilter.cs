@@ -83,7 +83,7 @@ namespace DVLD.Presentation.Controls.Person
             if (OnPersonSelected != null && Filtering)
                 OnPersonSelected(ctrlPersonInfo1.PersonID);
         }
-        public void LoadDat(int PersonId)
+        public void LoadData(int PersonId)
         {
             cbFilterBy.SelectedIndex = 1;
             txtFilterValue.Text = PersonId.ToString();

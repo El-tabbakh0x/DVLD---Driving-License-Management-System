@@ -1,5 +1,11 @@
 ﻿using DVLD.Business.GlobalClasses;
 using DVLD.Presentation.Application.ApplicationType;
+using DVLD.Presentation.Applications.International_License;
+using DVLD.Presentation.Applications.Local_Driving_License;
+using DVLD.Presentation.Applications.Renew_Local_License;
+using DVLD.Presentation.Applications.ReplaceLostOrDamagedLicense;
+using DVLD.Presentation.Applications.Rlease_Detained_License;
+using DVLD.Presentation.Drivers;
 using DVLD.Presentation.Login;
 using DVLD.Presentation.People;
 using DVLD.Presentation.Tests.TestTypes;
@@ -27,12 +33,14 @@ namespace DVLD.Presentation
 
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication();
+            frm.ShowDialog();
         }
 
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            frmManagementLocalDrivingLicesnseApplications frm = new frmManagementLocalDrivingLicesnseApplications();
+            frm.ShowDialog();
         }
 
         private void tsmPeople_Click(object sender, EventArgs e)
@@ -69,7 +77,7 @@ namespace DVLD.Presentation
         private void frmMain_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
-           // lblLoggedInUser.Text = "LoggedIn User: " + clsGlobal.CurrentUser.UserName;
+            // lblLoggedInUser.Text = "LoggedIn User: " + clsGlobal.CurrentUser.UserName;
             this.Refresh();
         }
 
@@ -87,6 +95,56 @@ namespace DVLD.Presentation
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalLicenseApplication frm = new frmNewInternationalLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void newDrivingLicenswToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalDrivingLicenseApplication frm = new frmRenewLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+
+        }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicenseApplication frm = new frmReleaseDetainedLicenseApplication();
+            frm.ShowDialog();
+        }
+        private void replacementForLostOrDemagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplaceLostOrDamagedLicenseApplication frm = new frmReplaceLostOrDamagedLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmManagementLocalDrivingLicesnseApplications frm = new frmManagementLocalDrivingLicesnseApplications();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListInternationalLicesnseApplications frm = new frmListInternationalLicesnseApplications();
+            frm.ShowDialog();
+        }
+
+        private void tsmDrivers_Click(object sender, EventArgs e)
+        {
+            frmManagementDrivers frm = new frmManagementDrivers();
+            frm.ShowDialog();
+
+        }
+
+        private void datlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListDetainedLicenses frm = new frmListDetainedLicenses();
             frm.ShowDialog();
         }
     }
