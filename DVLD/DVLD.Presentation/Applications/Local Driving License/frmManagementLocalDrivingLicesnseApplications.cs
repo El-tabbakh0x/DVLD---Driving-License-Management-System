@@ -91,8 +91,11 @@ namespace DVLD.Presentation.Applications.Local_Driving_License
                 dgvLocalDrivingLicenseApplications.Columns[4].HeaderText = "Application Date";
                 dgvLocalDrivingLicenseApplications.Columns[4].Width = 170;
 
-                dgvLocalDrivingLicenseApplications.Columns[5].HeaderText = "Passed Tests";
+                dgvLocalDrivingLicenseApplications.Columns[5].HeaderText = "Application Status";
                 dgvLocalDrivingLicenseApplications.Columns[5].Width = 150;
+
+                dgvLocalDrivingLicenseApplications.Columns[6].HeaderText = "Passed Tests";
+                dgvLocalDrivingLicenseApplications.Columns[6].Width = 150;
             }
 
             cbFilterBy.SelectedIndex = 0;
@@ -200,7 +203,6 @@ namespace DVLD.Presentation.Applications.Local_Driving_License
                 if (LocalDrivingLicenseApplication.Delete())
                 {
                     MessageBox.Show("Application Deleted Successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //refresh the form again.
                     frmManagementLocalDrivingLicesnseApplications_Load(null, null);
                 }
                 else
@@ -226,7 +228,7 @@ namespace DVLD.Presentation.Applications.Local_Driving_License
             clsLDLApp LocalDrivingLicenseApplication =clsLDLApp.FindByLocalDrivingAppLicenseID
                                                     (LocalDrivingLicenseApplicationID);
 
-            int TotalPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+            int TotalPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[6].Value;
 
             bool LicenseExists = LocalDrivingLicenseApplication.IsLicenseIssued();
             issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExists;
@@ -266,9 +268,7 @@ namespace DVLD.Presentation.Applications.Local_Driving_License
         {
             int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
             frmListTestAppointments frm = new frmListTestAppointments(LocalDrivingLicenseApplicationID, TestType);
-            frm.ShowDialog();
-            //refresh
-            
+            frm.ShowDialog();            
             frmManagementLocalDrivingLicesnseApplications_Load(null, null);
 
         }
