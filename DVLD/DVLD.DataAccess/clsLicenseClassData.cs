@@ -11,7 +11,7 @@ namespace DVLD.DataAccess
     public class clsLicenseClassData
     {
         public static bool GetLicenseClassInfoByID(int LicenseClassID,
-            ref string LicenseClassName , ref string ClassDescription, ref byte MinimumAllowedAge,
+            ref string LicenseClassName , ref string ClassDescription, ref byte MinimumeAllowedAge,
             ref byte DefaultValidityLength, ref float ClassFees)
         {
             bool isFound = false;
@@ -30,9 +30,9 @@ namespace DVLD.DataAccess
                         {
                             isFound = true;
 
-                            LicenseClassName  = Convert.ToString(reader["LicenseClassName "]);
+                            LicenseClassName  = Convert.ToString(reader["LicenseClassName"]);
                             ClassDescription = Convert.ToString(reader["ClassDescription"]);
-                            MinimumAllowedAge = Convert.ToByte(reader["MinimumAllowedAge"]);
+                            MinimumeAllowedAge = Convert.ToByte(reader["MinimumeAllowedAge"]);
                             DefaultValidityLength = Convert.ToByte(reader["DefaultValidityLength"]);
                             ClassFees = Convert.ToSingle(reader["ClassFees"]);
                         }
@@ -51,8 +51,6 @@ namespace DVLD.DataAccess
             }
             return isFound;
         }
-
-
         public static bool GetLicenseClassInfoByLicenseClassName (string LicenseClassName , ref int LicenseClassID,
             ref string ClassDescription, ref byte MinimumeAllowedAge,
            ref byte DefaultValidityLength, ref float ClassFees)
@@ -122,15 +120,15 @@ namespace DVLD.DataAccess
         }
 
         public static int AddNewLicenseClass(string LicenseClassName , string ClassDescription,
-            byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
+            byte MinimumeAllowedAge, byte DefaultValidityLength, float ClassFees)
         {
             int LicenseClassID = -1;
             string query = @"Insert Into LicenseClasses 
            (
-            LicenseClassName ,ClassDescription,MinimumAllowedAge, 
+            LicenseClassName ,ClassDescription,MinimumeAllowedAge, 
             DefaultValidityLength,ClassFees)
                             Values ( 
-            @LicenseClassName ,@ClassDescription,@MinimumAllowedAge, 
+            @LicenseClassName ,@ClassDescription,@MinimumeAllowedAge, 
             @DefaultValidityLength,@ClassFees)
                             where LicenseClassID = @LicenseClassID;
                             SELECT SCOPE_IDENTITY();";
@@ -140,7 +138,7 @@ namespace DVLD.DataAccess
                 {
                     command.Parameters.Add("@LicenseClassName ", SqlDbType.NVarChar, 50).Value = LicenseClassName ;
                     command.Parameters.Add("@ClassDescription", SqlDbType.NVarChar, 500).Value = ClassDescription;
-                    command.Parameters.Add("@MinimumAllowedAge", SqlDbType.TinyInt).Value = MinimumAllowedAge;
+                    command.Parameters.Add("@MinimumeAllowedAge", SqlDbType.TinyInt).Value = MinimumeAllowedAge;
                     command.Parameters.Add("@DefaultValidityLength", SqlDbType.TinyInt).Value = DefaultValidityLength;
                     command.Parameters.Add("@ClassFees", SqlDbType.SmallMoney).Value = ClassFees;
                     try
@@ -164,13 +162,13 @@ namespace DVLD.DataAccess
 
         public static bool UpdateLicenseClass(int LicenseClassID, string LicenseClassName ,
             string ClassDescription,
-            byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
+            byte MinimumeAllowedAge, byte DefaultValidityLength, float ClassFees)
         {
             int rowsAffected = 0;
             string query = @"Update  LicenseClasses  
                             set LicenseClassName  = @LicenseClassName ,
                                 ClassDescription = @ClassDescription,
-                                MinimumAllowedAge = @MinimumAllowedAge,
+                                MinimumeAllowedAge = @MinimumeAllowedAge,
                                 DefaultValidityLength = @DefaultValidityLength,
                                 ClassFees = @ClassFees
                                 where LicenseClassID = @LicenseClassID";
@@ -182,7 +180,7 @@ namespace DVLD.DataAccess
                     command.Parameters.AddWithValue("@LicenseClassID", SqlDbType.Int).Value = LicenseClassID;
                     command.Parameters.Add("@LicenseClassName ", SqlDbType.NVarChar, 50).Value = LicenseClassName ;
                     command.Parameters.Add("@ClassDescription", SqlDbType.NVarChar, 500).Value = ClassDescription;
-                    command.Parameters.Add("@MinimumAllowedAge", SqlDbType.TinyInt).Value = MinimumAllowedAge;
+                    command.Parameters.Add("@MinimumeAllowedAge", SqlDbType.TinyInt).Value = MinimumeAllowedAge;
                     command.Parameters.Add("@DefaultValidityLength", SqlDbType.TinyInt).Value = DefaultValidityLength;
                     command.Parameters.Add("@ClassFees", SqlDbType.SmallMoney).Value = ClassFees;
                     try

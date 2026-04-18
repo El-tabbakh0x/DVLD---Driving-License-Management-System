@@ -64,11 +64,9 @@ namespace DVLD.Presentation.Controls.Application
                 ResetApplicationInfo();
                 MessageBox.Show("No Application with ApplicationID = " + ApplicationID.ToString(), "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
-            {
-                ResetApplicationInfo();
-            }
+            _FillApplicationInfo();
         }
 
         private void llViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

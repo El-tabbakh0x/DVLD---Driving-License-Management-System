@@ -1,4 +1,5 @@
 ﻿using DVLD.Business;
+using DVLD.Presentation.Licenses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,14 +73,18 @@ namespace DVLD.Presentation.Controls.Application
             _FillLocalDrivingLicenseApplicationInfo();
         }
 
-       
-
         private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-           // frmShowLicenseInfo frm = new frmShowLicenseInfo(_LocalDrivingLicenseApplication.GetActiveLicenseID());
-           // frm.ShowDialog();
-
+        { 
+            if (_LicenseID != -1)
+            {
+                frmShowLicenseInfo frm = new frmShowLicenseInfo(_LicenseID);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No License Found!", "No License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
-
     }
 }

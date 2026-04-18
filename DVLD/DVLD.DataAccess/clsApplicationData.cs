@@ -11,8 +11,8 @@ namespace DVLD.DataAccess
 {
     public class clsApplicationData
     {
-        public static int AddNewApplication(int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
-     byte ApplicationStatus, DateTime LastStatusDate,
+        public static int AddNewApplication(int PersonID, DateTime ApplicationDate, int ApplicationTypeID,
+     byte ApplicationStatusID, DateTime LastStatusDate,
      float PaidFees, int CreatedByUserID)
         {
             int ApplicationID = -1;
@@ -28,10 +28,10 @@ namespace DVLD.DataAccess
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.Add("@PersonID ", SqlDbType.Int).Value = ApplicantPersonID;
+                    command.Parameters.Add("@PersonID ", SqlDbType.Int).Value = PersonID;
                     command.Parameters.Add("@ApplicationDate", SqlDbType.DateTime).Value = ApplicationDate;
                     command.Parameters.Add("@ApplicationTypeID", SqlDbType.Int).Value = ApplicationTypeID;
-                    command.Parameters.Add("@ApplicationStatusID ", SqlDbType.Int).Value = ApplicationStatus;
+                    command.Parameters.Add("@ApplicationStatusID ", SqlDbType.Int).Value = ApplicationStatusID;
                     command.Parameters.Add("@LastStatusDate", SqlDbType.DateTime).Value = @LastStatusDate;
                     command.Parameters.Add("@PaidFees", SqlDbType.SmallMoney).Value = @PaidFees;
                     command.Parameters.Add("@CreatedByUserID", SqlDbType.Int).Value = @CreatedByUserID;
@@ -53,16 +53,15 @@ namespace DVLD.DataAccess
             }
             return ApplicationID;
         }
-        public static bool UpdateApplication(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID,
-             byte ApplicationStatus, DateTime LastStatusDate,
-             float PaidFees, int CreatedByUserID)
+        public static bool UpdateApplication(int ApplicationID, int PersonID, DateTime ApplicationDate, int ApplicationTypeID,
+             byte ApplicationStatusID , DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
             int rowsAffected = 0;
             string query = @"Update  Applications  
-                            set ApplicantPersonID = @ApplicantPersonID,
+                            set PersonID = @PersonID,
                                 ApplicationDate = @ApplicationDate,
                                 ApplicationTypeID = @ApplicationTypeID,
-                                ApplicationStatus = @ApplicationStatus, 
+                                ApplicationStatusID  = @ApplicationStatusID , 
                                 LastStatusDate = @LastStatusDate,
                                 PaidFees = @PaidFees,
                                 CreatedByUserID=@CreatedByUserID
@@ -72,13 +71,13 @@ namespace DVLD.DataAccess
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.Add("@ApplicationID", SqlDbType.Int).Value = ApplicationID;
-                    command.Parameters.Add("@ApplicantPersonID", SqlDbType.Int).Value = ApplicantPersonID;
+                    command.Parameters.Add("@PersonID", SqlDbType.Int).Value = PersonID;
                     command.Parameters.Add("@ApplicationDate", SqlDbType.DateTime).Value = ApplicationDate;
                     command.Parameters.Add("@ApplicationTypeID", SqlDbType.Int).Value = ApplicationTypeID;
-                    command.Parameters.Add("@ApplicationStatus", SqlDbType.Int).Value = ApplicationStatus;
-                    command.Parameters.Add("@@LastStatusDate", SqlDbType.DateTime).Value = @LastStatusDate;
-                    command.Parameters.Add("@@PaidFees", SqlDbType.SmallMoney).Value = @PaidFees;
-                    command.Parameters.Add("@@CreatedByUserID", SqlDbType.Int).Value = @CreatedByUserID;
+                    command.Parameters.Add("@ApplicationStatusID ", SqlDbType.Int).Value = ApplicationStatusID;
+                    command.Parameters.Add("@@LastStatusDate", SqlDbType.DateTime).Value = LastStatusDate;
+                    command.Parameters.Add("@@PaidFees", SqlDbType.SmallMoney).Value = PaidFees;
+                    command.Parameters.Add("@@CreatedByUserID", SqlDbType.Int).Value = CreatedByUserID;
                     try
                     {
                         connection.Open();
@@ -98,8 +97,7 @@ namespace DVLD.DataAccess
         public static bool DeleteApplication(int ApplicationID)
         {
             int rowsAffected = 0;
-            string query = @"Delete Applications 
-                                where ApplicationID = @ApplicationID";
+            string query = @"Delete Applications where ApplicationID = @ApplicationID";
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -120,10 +118,9 @@ namespace DVLD.DataAccess
             }
             return (rowsAffected > 0);
         }
-        public static bool GetApplicationInfoByID(int ApplicationID,
-          ref int ApplicantPersonID, ref DateTime ApplicationDate, ref int ApplicationTypeID,
-          ref byte ApplicationStatus, ref DateTime LastStatusDate,
-          ref float PaidFees, ref int CreatedByUserID)
+        public static bool GetApplicationInfoByID(int ApplicationID,ref int PersonID, 
+            ref DateTime ApplicationDate, ref int ApplicationTypeID,ref byte ApplicationStatusID,
+            ref DateTime LastStatusDate, ref float PaidFees, ref int CreatedByUserID)
         {
             bool isFound = false;
             string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
@@ -139,10 +136,10 @@ namespace DVLD.DataAccess
                         if (reader.Read())
                         {
                             isFound = true;
-                            ApplicantPersonID = Convert.ToInt32(reader["ApplicantPersonID"]);
+                            PersonID = Convert.ToInt32(reader["PersonID"]);
                             ApplicationDate = Convert.ToDateTime(reader["ApplicationDate"]);
                             ApplicationTypeID = Convert.ToInt32(reader["ApplicationTypeID"]);
-                            ApplicationStatus = Convert.ToByte(reader["ApplicationStatus"]);
+                            ApplicationStatusID = Convert.ToByte(reader["ApplicationStatusID"]);
                             LastStatusDate = Convert.ToDateTime(reader["LastStatusDate"]);
                             PaidFees = Convert.ToSingle(reader["PaidFees"]);
                             CreatedByUserID = Convert.ToInt32(reader["CreatedByUserID"]);
@@ -221,12 +218,12 @@ namespace DVLD.DataAccess
         public static int GetActiveApplicationID(int PersonID, int ApplicationTypeID)
         {
             int ActiveApplicationID = -1;
-            string query = "SELECT ActiveApplicationID=ApplicationID FROM Applications WHERE ApplicantPersonID = @ApplicantPersonID and ApplicationTypeID=@ApplicationTypeID and ApplicationStatus=1";
+            string query = "SELECT ActiveApplicationID=ApplicationID FROM Applications WHERE PersonID = @PersonID and ApplicationTypeID=@ApplicationTypeID and ApplicationStatus=1";
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.Add("@ApplicantPersonID", SqlDbType.Int).Value = PersonID;
+                    command.Parameters.Add("@PersonID", SqlDbType.Int).Value = PersonID;
                     command.Parameters.Add("@ApplicationTypeID", SqlDbType.Int).Value = ApplicationTypeID;
                     try
                     {
@@ -253,7 +250,7 @@ namespace DVLD.DataAccess
                             From
                             Applications INNER JOIN
                             LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
-                            WHERE ApplicantPersonID = @ApplicantPersonID 
+                            WHERE PersonID = @PersonID 
                             and ApplicationTypeID=@ApplicationTypeID 
 							and LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
                             and ApplicationStatus=1";
@@ -261,7 +258,7 @@ namespace DVLD.DataAccess
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.Add("@ApplicantPersonID", SqlDbType.Int).Value = PersonID;
+                    command.Parameters.Add("@PersonID", SqlDbType.Int).Value = PersonID;
                     command.Parameters.Add("@ApplicationTypeID", SqlDbType.Int).Value = ApplicationTypeID;
                     command.Parameters.Add("@LicenseClassID", SqlDbType.Int).Value = LicenseClassID;
                     try
@@ -287,7 +284,7 @@ namespace DVLD.DataAccess
             int rowsAffected = 0;
             string query = @"Update  Applications  
                             set 
-                                ApplicationStatus = @NewStatus, 
+                                ApplicationStatusID = @NewStatus, 
                                 LastStatusDate = @LastStatusDate
                             where ApplicationID=@ApplicationID;";
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
