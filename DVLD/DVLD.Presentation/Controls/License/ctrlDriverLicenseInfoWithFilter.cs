@@ -65,7 +65,6 @@ namespace DVLD.Presentation.Controls.License
                 // Raise the event with a parameter
                 OnLicenseSelected(_LicenseID);
 
-
         }
 
         private void txtLicenseID_KeyPress(object sender, KeyPressEventArgs e)
