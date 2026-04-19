@@ -17,7 +17,7 @@ namespace DVLD.Presentation.Controls.License
         // Define a custom event handler delegate with parameters
         public event Action<int> OnLicenseSelected;
         // Create a protected method to raise the event with a parameter
-        protected virtual void PersonSelected(int LicenseID)
+        protected virtual void LicenseSelected(int LicenseID)
         {
             Action<int> handler = OnLicenseSelected;
             if (handler != null)
@@ -54,6 +54,7 @@ namespace DVLD.Presentation.Controls.License
         public clsLicense SelectedLicenseInfo
         { get { return ctrlDriverLicenseInfo1.SelectedLicenseInfo; } }
 
+
         public void LoadLicenseInfo(int LicenseID)
         {
 
@@ -67,11 +68,12 @@ namespace DVLD.Presentation.Controls.License
 
         }
 
+
         private void txtLicenseID_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-
+            
 
             // Check if the pressed key is Enter (character code 13)
             if (e.KeyChar == (char)13)
@@ -93,6 +95,7 @@ namespace DVLD.Presentation.Controls.License
 
             }
             _LicenseID = int.Parse(txtLicenseID.Text);
+            //_LicenseID = Convert.ToInt32(txtLicenseID.Text);
             LoadLicenseInfo(_LicenseID);
         }
         public void txtLicenseIDFocus()

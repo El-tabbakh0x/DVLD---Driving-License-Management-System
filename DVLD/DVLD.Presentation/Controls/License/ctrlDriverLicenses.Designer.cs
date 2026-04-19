@@ -161,7 +161,7 @@
             this.tbInternationalLicenses.Location = new System.Drawing.Point(4, 22);
             this.tbInternationalLicenses.Name = "tbInternationalLicenses";
             this.tbInternationalLicenses.Padding = new System.Windows.Forms.Padding(3);
-            this.tbInternationalLicenses.Size = new System.Drawing.Size(761, 222);
+            this.tbInternationalLicenses.Size = new System.Drawing.Size(860, 211);
             this.tbInternationalLicenses.TabIndex = 1;
             this.tbInternationalLicenses.Text = "International";
             this.tbInternationalLicenses.UseVisualStyleBackColor = true;
@@ -204,7 +204,7 @@
             this.dgvInternationalLicensesHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInternationalLicensesHistory.ContextMenuStrip = this.cmsInterenationalLicenseHistory;
             this.dgvInternationalLicensesHistory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvInternationalLicensesHistory.Location = new System.Drawing.Point(324, 45);
+            this.dgvInternationalLicensesHistory.Location = new System.Drawing.Point(7, 42);
             this.dgvInternationalLicensesHistory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvInternationalLicensesHistory.MultiSelect = false;
             this.dgvInternationalLicensesHistory.Name = "dgvInternationalLicensesHistory";
@@ -218,7 +218,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvInternationalLicensesHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInternationalLicensesHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInternationalLicensesHistory.Size = new System.Drawing.Size(935, 130);
+            this.dgvInternationalLicensesHistory.Size = new System.Drawing.Size(833, 164);
             this.dgvInternationalLicensesHistory.TabIndex = 136;
             this.dgvInternationalLicensesHistory.TabStop = false;
             // 
