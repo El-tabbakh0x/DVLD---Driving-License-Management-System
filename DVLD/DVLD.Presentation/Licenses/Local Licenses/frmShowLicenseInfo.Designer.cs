@@ -89,6 +89,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pbTestTypeImage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowLicenseInfo";
             this.Text = "frmShowLicenseInfo";
             this.Load += new System.EventHandler(this.frmShowLicenseInfo_Load);
