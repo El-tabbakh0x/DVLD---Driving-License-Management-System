@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlDriverLicenses));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLocalLicensesHistory = new System.Windows.Forms.DataGridView();
             this.cmsLocalLicenseHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -93,11 +94,12 @@
             // 
             // showLicenseInfoToolStripMenuItem
             // 
-            this.showLicenseInfoToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.LicenseView32;
+            this.showLicenseInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showLicenseInfoToolStripMenuItem.Image")));
             this.showLicenseInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
             this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
             this.showLicenseInfoToolStripMenuItem.Text = "Show License Info";
+            this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
             // 
             // tcDriverLicenses
             // 
@@ -227,15 +229,16 @@
             this.cmsInterenationalLicenseHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.InternationalLicenseHistorytoolStripMenuItem});
             this.cmsInterenationalLicenseHistory.Name = "cmsLocalLicenseHistory";
-            this.cmsInterenationalLicenseHistory.Size = new System.Drawing.Size(256, 42);
+            this.cmsInterenationalLicenseHistory.Size = new System.Drawing.Size(256, 64);
             // 
             // InternationalLicenseHistorytoolStripMenuItem
             // 
-            this.InternationalLicenseHistorytoolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.LicenseView32;
+            this.InternationalLicenseHistorytoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("InternationalLicenseHistorytoolStripMenuItem.Image")));
             this.InternationalLicenseHistorytoolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.InternationalLicenseHistorytoolStripMenuItem.Name = "InternationalLicenseHistorytoolStripMenuItem";
             this.InternationalLicenseHistorytoolStripMenuItem.Size = new System.Drawing.Size(255, 38);
             this.InternationalLicenseHistorytoolStripMenuItem.Text = "Show International License Info";
+            this.InternationalLicenseHistorytoolStripMenuItem.Click += new System.EventHandler(this.InternationalLicenseHistorytoolStripMenuItem_Click);
             // 
             // groupBox1
             // 
