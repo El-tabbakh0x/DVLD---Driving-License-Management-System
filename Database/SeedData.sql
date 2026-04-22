@@ -16,6 +16,13 @@ Insert Into ApplicationStatus(ApplicationStatusTitle)
 		('Cancelled'),
 		('Completed');
 
+Insert Into LicenseIssueReasons (IssueReasonsTitle, IssueReasonsFees)
+	Values 
+	('FirstTime',50), 
+	('Renew' ,40), 
+	('DamagedReplacement',30),
+	('LostReplacement',30);
+
 Insert Into Countries(CountryName)
 	VALUES		
 ('Afghanistan'),('Albania'),('Algeria'),('Andorra'),('Angola'),
