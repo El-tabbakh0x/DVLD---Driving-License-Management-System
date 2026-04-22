@@ -57,6 +57,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.manageDetainedLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detainedLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releaseDetainedLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -213,6 +216,10 @@
             // 
             // datlineToolStripMenuItem
             // 
+            this.datlineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageDetainedLicensesToolStripMenuItem,
+            this.detainedLicensesToolStripMenuItem,
+            this.releaseDetainedLicensesToolStripMenuItem});
             this.datlineToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Detain64;
             this.datlineToolStripMenuItem.Name = "datlineToolStripMenuItem";
             this.datlineToolStripMenuItem.Size = new System.Drawing.Size(380, 36);
@@ -312,6 +319,30 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // manageDetainedLicensesToolStripMenuItem
+            // 
+            this.manageDetainedLicensesToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Detain32;
+            this.manageDetainedLicensesToolStripMenuItem.Name = "manageDetainedLicensesToolStripMenuItem";
+            this.manageDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(374, 36);
+            this.manageDetainedLicensesToolStripMenuItem.Text = "Manage Detained Licenses";
+            this.manageDetainedLicensesToolStripMenuItem.Click += new System.EventHandler(this.manageDetainedLicensesToolStripMenuItem_Click);
+            // 
+            // detainedLicensesToolStripMenuItem
+            // 
+            this.detainedLicensesToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.Detain32;
+            this.detainedLicensesToolStripMenuItem.Name = "detainedLicensesToolStripMenuItem";
+            this.detainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(374, 36);
+            this.detainedLicensesToolStripMenuItem.Text = "Detain Licenses";
+            this.detainedLicensesToolStripMenuItem.Click += new System.EventHandler(this.detainedLicensesToolStripMenuItem_Click);
+            // 
+            // releaseDetainedLicensesToolStripMenuItem
+            // 
+            this.releaseDetainedLicensesToolStripMenuItem.Image = global::DVLD.Presentation.Properties.Resources.ReleaseDetainedLicense32;
+            this.releaseDetainedLicensesToolStripMenuItem.Name = "releaseDetainedLicensesToolStripMenuItem";
+            this.releaseDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(374, 36);
+            this.releaseDetainedLicensesToolStripMenuItem.Text = "Release Detained Licenses";
+            this.releaseDetainedLicensesToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedLicensesToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +395,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem manageDetainedLicensesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detainedLicensesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem releaseDetainedLicensesToolStripMenuItem;
     }
 }
 
